@@ -1,0 +1,111 @@
+<div class="row">
+  <div [ngClass]="isSidePanelVisible ? 'col-8' : 'col-12'">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <div class="row">
+          <div class="col-6">Product List</div>
+          <div class="col-6 text-end">
+            <button class="btn btn-sm btn-success" (click)="openSidePanel()">
+              New
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="img_avatar1.png"
+                alt="Card image"
+              />
+              <div class="card-body">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Some example text.</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="img_avatar1.png"
+                alt="Card image"
+              />
+              <div class="card-body">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Some example text.</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="img_avatar1.png"
+                alt="Card image"
+              />
+              <div class="card-body">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Some example text.</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  <div class="col-4" *ngIf="isSidePanelVisible">
+    <div class="card">
+      <div class="card-header bg-primary">
+        <div class="row">
+          <div class="col-6">New Product</div>
+          <div class="col-6 text-end">
+            <button class="btn btn-sm btn-success" (click)="closeSidePanel()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <label>SKU</label>
+            <input class="form-control" type="text" [(ngModel)]="productObj.productSku" />
+          </div>
+          <div class="col-6">
+            <label>Name</label>
+            <input class="form-control" type="text" [(ngModel)]="productObj.productName" />
+          </div>
+          <div class="col-6">
+            <label>Short Name</label>
+            <input class="form-control" type="text" [(ngModel)]="productObj.productShortName" />
+          </div>
+          <div class="col-6">
+            <label>Price</label>
+            <input class="form-control" type="text" [(ngModel)]="productObj.productPrice" />
+          </div>
+          <div class="col-6">
+            <label>Category</label>
+            <select class="form-select" [(ngModel)]="productObj.categoryId">
+              <option *ngFor="let cate of categoryList" [value]="cate.categoryId">{{ cate.categoryName }}</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label>Delivery Time Span</label>
+            <input class="form-control" type="text" [(ngModel)]="productObj.deliveryTimeSpan" />
+          </div>
+          <div class="col-12">
+            <label>Image Url</label>
+            <input class="form-control" type="text" [(ngModel)]="productObj.productImageUrl" />
+          </div>
+          <div class="col-12">
+            <label>Product Description</label>
+            <textarea class="form-control" rows="4" [(ngModel)]="productObj.productDescription"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
